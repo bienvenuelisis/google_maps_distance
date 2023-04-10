@@ -7,3 +7,7 @@
 ## 0.0.1+1
 
 * Add example demo.
+
+## 0.0.1+2
+
+* Change homepage to GitHub repo.
