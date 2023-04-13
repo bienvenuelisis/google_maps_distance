@@ -1,10 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
 import 'distance_value.dart';
 import 'duration_value.dart';
+import 'leg_step.dart';
 import 'point.dart';
-import 'step.dart';
 
-class Leg {
-  Leg({
+class Leg extends Equatable {
+  const Leg({
     required this.distance,
     required this.duration,
     required this.endAddress,
@@ -23,7 +26,8 @@ class Leg {
         endLocation: Point.fromJson(json["end_location"]),
         startAddress: json["start_address"],
         startLocation: Point.fromJson(json["start_location"]),
-        steps: List<Step>.from(json["steps"].map((x) => Step.fromJson(x))),
+        steps:
+            List<LegStep>.from(json["steps"].map((x) => LegStep.fromJson(x))),
         trafficSpeedEntry:
             List<dynamic>.from(json["traffic_speed_entry"].map((x) => x)),
         viaWaypoint: List<dynamic>.from(json["via_waypoint"].map((x) => x)),
@@ -35,9 +39,27 @@ class Leg {
   final Point endLocation;
   final String startAddress;
   final Point startLocation;
-  final List<Step> steps;
+  final List<LegStep> steps;
   final List<dynamic> trafficSpeedEntry;
   final List<dynamic> viaWaypoint;
+
+  @override
+  List<Object> get props {
+    return [
+      distance,
+      duration,
+      endAddress,
+      endLocation,
+      startAddress,
+      startLocation,
+      steps,
+      trafficSpeedEntry,
+      viaWaypoint,
+    ];
+  }
+
+  @override
+  bool get stringify => true;
 
   int get distanceInMeters => distance.meters;
 
@@ -48,7 +70,7 @@ class Leg {
     Point? endLocation,
     String? startAddress,
     Point? startLocation,
-    List<Step>? steps,
+    List<LegStep>? steps,
     List<dynamic>? trafficSpeedEntry,
     List<dynamic>? viaWaypoint,
   }) =>

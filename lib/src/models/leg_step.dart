@@ -1,10 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
 import 'distance_value.dart';
 import 'duration_value.dart';
 import 'leg_polyline.dart';
 import 'point.dart';
 
-class Step {
-  Step({
+class LegStep extends Equatable {
+  const LegStep({
     required this.distance,
     required this.duration,
     required this.endLocation,
@@ -15,7 +18,7 @@ class Step {
     this.maneuver,
   });
 
-  factory Step.fromJson(Map<String, dynamic> json) => Step(
+  factory LegStep.fromJson(Map<String, dynamic> json) => LegStep(
         distance: DistanceValue.fromJson(json["distance"]),
         duration: DurationValue.fromJson(json["duration"]),
         endLocation: Point.fromJson(json["end_location"]),
@@ -35,7 +38,24 @@ class Step {
   final Point startLocation;
   final String travelMode;
 
-  Step copyWith({
+  @override
+  List<Object> get props {
+    return [
+      distance,
+      duration,
+      endLocation,
+      htmlInstructions,
+      maneuver ?? "",
+      polyline,
+      startLocation,
+      travelMode,
+    ];
+  }
+
+  @override
+  bool get stringify => true;
+
+  LegStep copyWith({
     DistanceValue? distance,
     DurationValue? duration,
     Point? endLocation,
@@ -45,7 +65,7 @@ class Step {
     String? travelMode,
     String? maneuver,
   }) =>
-      Step(
+      LegStep(
         distance: distance ?? this.distance,
         duration: duration ?? this.duration,
         endLocation: endLocation ?? this.endLocation,

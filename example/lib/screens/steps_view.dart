@@ -81,7 +81,7 @@ class RouteStepsView extends StatelessWidget {
 class _StepListTile extends StatelessWidget {
   const _StepListTile(this.step);
 
-  final Step step;
+  final LegStep step;
 
   @override
   Widget build(BuildContext context) {

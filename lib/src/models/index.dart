@@ -5,7 +5,7 @@ export "duration_value.dart";
 export "geocoded_way_point.dart";
 export "leg.dart";
 export "leg_polyline.dart";
+export 'leg_step.dart';
 export "point.dart";
 export "point_mixin.dart";
 export "route.dart";
-export "step.dart";

@@ -1,5 +1,8 @@
-class DistanceValue {
-  DistanceValue({
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
+class DistanceValue extends Equatable {
+  const DistanceValue({
     required this.text,
     required this.meters,
   });
@@ -9,8 +12,14 @@ class DistanceValue {
         meters: json["value"],
       );
 
-  final String text;
   final int meters;
+  final String text;
+
+  @override
+  List<Object> get props => [text, meters];
+
+  @override
+  bool get stringify => true;
 
   DistanceValue copyWith({
     String? text,

@@ -1,9 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
 import 'bounds.dart';
 import 'leg.dart';
 import 'leg_polyline.dart';
 
-class Route {
-  Route({
+class Route extends Equatable {
+  const Route({
     required this.bounds,
     required this.copyrights,
     required this.legs,
@@ -30,6 +33,22 @@ class Route {
   final String summary;
   final List<dynamic> warnings;
   final List<dynamic> waypointOrder;
+
+  @override
+  List<Object> get props {
+    return [
+      bounds,
+      copyrights,
+      legs,
+      overviewPolyline,
+      summary,
+      warnings,
+      waypointOrder,
+    ];
+  }
+
+  @override
+  bool get stringify => true;
 
   Leg get shortestLeg => (legs
         ..sort((l1, l2) => l1.distanceInMeters.compareTo(l2.distanceInMeters)))

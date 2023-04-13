@@ -1,5 +1,8 @@
-class LegPolyline {
-  LegPolyline({
+import 'package:equatable/equatable.dart';
+
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+class LegPolyline extends Equatable {
+  const LegPolyline({
     required this.points,
   });
 
@@ -8,6 +11,12 @@ class LegPolyline {
       );
 
   final String points;
+
+  @override
+  List<Object> get props => [points];
+
+  @override
+  bool get stringify => true;
 
   LegPolyline copyWith({
     String? points,

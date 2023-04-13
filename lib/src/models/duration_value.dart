@@ -1,5 +1,8 @@
-class DurationValue {
-  DurationValue({
+import 'package:equatable/equatable.dart';
+
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+class DurationValue extends Equatable {
+  const DurationValue({
     required this.text,
     required this.seconds,
   });
@@ -11,6 +14,12 @@ class DurationValue {
 
   final int seconds;
   final String text;
+
+  @override
+  List<Object> get props => [seconds, text];
+
+  @override
+  bool get stringify => true;
 
   Duration get value => Duration(seconds: seconds);
 

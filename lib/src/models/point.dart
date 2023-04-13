@@ -1,5 +1,8 @@
-class Point {
-  Point({
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+
+class Point extends Equatable {
+  const Point({
     required this.lat,
     required this.lng,
   });
@@ -11,6 +14,12 @@ class Point {
 
   final double lat;
   final double lng;
+
+  @override
+  List<Object> get props => [lat, lng];
+
+  @override
+  bool get stringify => true;
 
   Point copyWith({
     double? lat,

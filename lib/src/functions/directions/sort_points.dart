@@ -46,8 +46,8 @@ Future<List<T>> sort<T extends PointMixin>(
 }
 
 class _PointDistance<T extends PointMixin> {
-  final T point;
-  final int distance;
-
   _PointDistance(this.point, this.distance);
+
+  final int distance;
+  final T point;
 }

@@ -1,8 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // To parse this JSON data, do
 //
 //     final directions = directionsFromJson(jsonString);
 
 import 'dart:convert';
+
+import 'package:equatable/equatable.dart';
 
 import 'geocoded_way_point.dart';
 import 'route.dart';
@@ -12,8 +15,8 @@ Directions directionsFromJson(String str) =>
 
 String directionsToJson(Directions data) => json.encode(data.toJson());
 
-class Directions {
-  Directions({
+class Directions extends Equatable {
+  const Directions({
     required this.geocodedWaypoints,
     required this.routes,
     required this.status,
@@ -31,12 +34,17 @@ class Directions {
   final List<Route> routes;
   final String status;
 
+  @override
+  List<Object> get props => [geocodedWaypoints, routes, status];
+
+  @override
+  bool get stringify => true;
+
+  bool get ok => status.toUpperCase() == "OK";
   Route get shortestRoute => (routes
         ..sort((r1, r2) => r1.shortestLeg.distanceInMeters
             .compareTo(r2.shortestLeg.distanceInMeters)))
       .first;
-
-  bool get ok => status.toUpperCase() == "OK";
 
   Directions copyWith({
     List<GeocodedWaypoint>? geocodedWaypoints,
