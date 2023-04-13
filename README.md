@@ -13,6 +13,8 @@ and the Flutter guide for
 
 # Calculate distances, durations & Get shortest route/leg between two points with Google_Maps Directions API
 
+## Discontinued. Use instead [google_maps_directions](https://pub.dev/packages/google_maps_directions)
+
 ## Features
 
 - Calculate distance (corresponding to shortest route distance evaluation) between two points.

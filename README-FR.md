@@ -1,5 +1,7 @@
 # Calculez les distances, les durées et obtenez l'itinéraire/l'étape le plus court entre deux points avec l'API Google_Maps Directions
 
+## Déprécié. Utilisez plutôt [google_maps_directions](https://pub.dev/packages/google_maps_directions)
+
 ## Fonctionnalités
 
 - Calculer la distance (correspondant à l'évaluation de la distance de l'itinéraire le plus court) entre deux points.

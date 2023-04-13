@@ -23,3 +23,7 @@
 ## 0.0.3
 
 * Remove transient flutter dependencies.
+
+## 0.0.4
+
+* Discontinued. Use instead [google_maps_directions](https://pub.dev/packages/google_maps_directions)
