@@ -11,3 +11,7 @@
 ## 0.0.1+2
 
 * Change homepage to GitHub repo.
+
+## 0.0.1+3
+
+* Add Equatable to models classes.
