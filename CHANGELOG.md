@@ -15,3 +15,7 @@
 ## 0.0.1+3
 
 * Add Equatable to models classes.
+
+## 0.0.2
+
+* Remove flutter as dependency.
